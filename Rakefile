@@ -79,9 +79,16 @@ namespace :remove do
   end
 end
 
-desc "List all routes for this application"
-task :routes do
-  puts `grep '^[get|post|put|delete].*do$' app/controllers/*.rb | sed 's/ do$//'`
+namespace :routes do
+  desc "List all RESTful routes for this application"
+  task :rest do
+    puts `grep '^[get|post|put|delete].*do$' app/controllers/*.rb | sed 's/ do$//'`
+  end
+
+  desc "List all routes, RESTful or otherwise, for this application"
+  task :all do
+    puts `grep 'do' app/controllers/*.rb | sed 's/ do$//'`
+  end
 end
 
 task :default => ["test"]
