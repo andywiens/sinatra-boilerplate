@@ -1,0 +1,6 @@
+<p>Are you sure you want to delete the account for: <em>"<%= @user.fname %> <%= @user.lname %>"</em>?</p>
+<form action="/account/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="btn btn-danger" type="submit" value="Yes, delete it">
+    <a class="btn btn-info" href="/admin/edit/<%= @user.id %>">Cancel</a>
+</form>
