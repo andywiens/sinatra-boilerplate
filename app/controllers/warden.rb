@@ -130,7 +130,7 @@ put '/account/:id' do
                   :email => params[:email], 
                   :password => params[:password], 
                   :password_confirmation => params[:password_confirmation])
-    logger.info "account update for #{params(:id)} successful"
+    logger.info "update for account #{params[:id]} successful"
     redirect '/accounts'
   else
     logger.error "account update failed".red
