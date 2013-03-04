@@ -134,12 +134,13 @@ put '/account/:id' do
     redirect '/accounts'
   else
     logger.error "account update failed".red
-    redirect "/account/#{params[:id]}/edit"
+    userid = params[:id]
+    redirect "/account/#{userid}/edit"
   end
 end
 
 # account/:id/delete displays the account delete confirmation page
-get '/account/:id/delete' do 
+get '/account/:id/delete' do
   @user = User.get(params[:id])
 
   erb :'/admin/delete'
